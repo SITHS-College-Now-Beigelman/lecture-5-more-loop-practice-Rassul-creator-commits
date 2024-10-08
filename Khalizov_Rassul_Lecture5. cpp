@@ -1,0 +1,73 @@
+// Rassul Khalizov
+// Lecture 5
+// October 7th
+
+#include<iostream>
+
+using namespace std;
+
+#include<iomanip>
+
+#include<string> 
+
+int main()
+{
+    double initial;
+    double money;
+    double credit;
+    double debit;
+    double transactions; 
+    string DebitorCredit;
+
+    cout<<"How much money does your bank account had at the start of the day?";
+    cin >> initial; 
+
+    cout<<"How many bank transactions have been done today?";
+    cin >> transactions;
+
+    credit = 0;
+    debit = 0;
+    
+    while (transactions > 0)
+    {
+        cout<<"How much money is being transacted?";
+        cin >> money; 
+
+        cout<<"What type of transaction is this: credit or debit?";
+        cin >> DebitorCredit;
+
+        if (DebitorCredit == ("debit"))
+        {
+        initial = initial + money;
+
+        transactions = transactions - 1; 
+
+        credit = credit + money;
+        }
+
+        if (DebitorCredit == ("credit"))
+        {
+        initial = initial - money;
+
+        transactions = transactions - 1; 
+
+        debit = debit - money;
+        }
+    }
+
+
+    cout<<"You have " << initial << " dollars in the bank" << "and a total debit amount of " << debit << " and a total credit amount of " << credit << endl;  
+   
+    return 0;
+
+    /*
+    How much money does your bank account had at the start of the day?10
+How many bank transactions have been done today?2
+How much money is being transacted?2
+What type of transaction is this: credit or debit?debit
+How much money is being transacted?2
+What type of transaction is this: credit or debit?debit
+You have 14 dollars in the bankand a total debit amount of 
+0 and a total credit amount of 4
+    */
+}
